@@ -1,0 +1,16 @@
+{
+  "name": "anuga-apis",
+  "version": "1.0.0",
+  "description": "ANUGA APIS - Simple API hub for WhatsApp bot developers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=16.x"
+  },
+  "license": "MIT"
+}
