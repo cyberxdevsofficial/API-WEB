@@ -26,11 +26,14 @@
     <header>
       <div>
         <h1>ANUGA APIS</h1>
-        <div class="status">Status: <strong>Active</strong> · Battery: <strong>100%</strong></div>
+        <div class="status">
+          Status: <strong>Active</strong> · 
+          Battery: <strong id="battery-status">Loading...</strong>
+        </div>
       </div>
       <div>
-        <!-- Explore APIs button -->
-        <a class="btn" href="/docs">Explore APIs</a>
+        <!-- Explore APIs button (redirects to docs.html) -->
+        <a class="btn" href="/docs.html">Explore APIs</a>
         <!-- Contact Developer button -->
         <a class="btn" href="https://wa.me/+94710695082" target="_blank" style="margin-left:8px">Contact Developer</a>
       </div>
@@ -41,9 +44,12 @@
         <div>
           <h2>Simple API hub for WhatsApp Bot Developers</h2>
           <p class="muted">Lightweight, minimal integration. Use these endpoints inside your bot to add features quickly.</p>
+
           <p style="margin-top:12px" class="muted">Currently serving <strong>56</strong> active endpoints.</p>
-          <p class="muted">IP Address: <code>192.168.1.1</code></p>
+
+          <p class="muted">IP Address: <code id="ip-address">Loading...</code></p>
         </div>
+
         <aside>
           <div style="padding:12px;background:rgba(0,0,0,0.22);border-radius:10px">
             <p class="muted" style="margin:0 0 8px 0">What is an API?</p>
@@ -79,5 +85,34 @@
 
     <footer>© 2023-2025 | POWERED BY ANUGA APIS</footer>
   </div>
+
+  <!-- JavaScript for Battery + IP -->
+  <script>
+    // Battery API
+    if (navigator.getBattery) {
+      navigator.getBattery().then(function(battery) {
+        function updateBattery() {
+          let level = Math.round(battery.level * 100) + "%";
+          let charging = battery.charging ? "⚡ Charging" : "🔋";
+          document.getElementById("battery-status").textContent = level + " " + charging;
+        }
+        updateBattery();
+        battery.addEventListener("levelchange", updateBattery);
+        battery.addEventListener("chargingchange", updateBattery);
+      });
+    } else {
+      document.getElementById("battery-status").textContent = "Not Supported";
+    }
+
+    // Fetch IP Address
+    fetch("https://api.ipify.org?format=json")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("ip-address").textContent = data.ip;
+      })
+      .catch(() => {
+        document.getElementById("ip-address").textContent = "Unavailable";
+      });
+  </script>
 </body>
-  </html>
+</html>
