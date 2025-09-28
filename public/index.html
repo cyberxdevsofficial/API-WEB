@@ -10,7 +10,7 @@
     *{box-sizing:border-box}
     body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; background:var(--bg); color:var(--text); line-height:1.45}
     .container{max-width:900px;margin:40px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between}
+    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
     h1{margin:0;font-size:22px;letter-spacing:1px}
     .status{font-size:13px;color:var(--muted)}
     .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;margin-top:18px}
@@ -29,8 +29,10 @@
         <div class="status">Status: <strong>Active</strong> · Battery: <strong>100%</strong></div>
       </div>
       <div>
-        <a class="btn" href="#explore">Explore APIs</a>
-        <a class="btn" href="#contact" style="margin-left:8px">Contact Developer</a>
+        <!-- Explore APIs button -->
+        <a class="btn" href="/docs">Explore APIs</a>
+        <!-- Contact Developer button -->
+        <a class="btn" href="https://wa.me/+94710695082" target="_blank" style="margin-left:8px">Contact Developer</a>
       </div>
     </header>
 
@@ -39,12 +41,9 @@
         <div>
           <h2>Simple API hub for WhatsApp Bot Developers</h2>
           <p class="muted">Lightweight, minimal integration. Use these endpoints inside your bot to add features quickly.</p>
-
           <p style="margin-top:12px" class="muted">Currently serving <strong>56</strong> active endpoints.</p>
-
           <p class="muted">IP Address: <code>192.168.1.1</code></p>
         </div>
-
         <aside>
           <div style="padding:12px;background:rgba(0,0,0,0.22);border-radius:10px">
             <p class="muted" style="margin:0 0 8px 0">What is an API?</p>
@@ -81,4 +80,4 @@
     <footer>© 2023-2025 | POWERED BY ANUGA APIS</footer>
   </div>
 </body>
-</html>
+  </html>
