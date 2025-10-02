@@ -6,16 +6,32 @@
   <title>Login - ANUGA APIS</title>
   <style>
     body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;display:flex;align-items:center;justify-content:center;height:100vh}
-    .box{background:#1c1c1c;padding:25px;border-radius:10px;text-align:center}
-    h1{font-size:22px}
-    p{color:#aaa}
+    .box{background:#1c1c1c;padding:25px;border-radius:10px;text-align:center;width:300px}
+    h1{font-size:22px;margin-bottom:10px}
+    input{width:90%;padding:10px;margin:8px 0;border:1px solid #666;background:#222;color:#fff;border-radius:5px}
+    button{padding:10px 20px;background:#222;border:1px solid #666;color:#fff;cursor:pointer;border-radius:5px}
+    button:hover{background:#333}
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>🔒 Access Restricted</h1>
-    <p>Your IP address is not authorized to access <strong>ANUGA APIS</strong>.</p>
-    <p>Please contact the developer for access.</p>
+    <h1>🔑 Login</h1>
+    <input type="text" placeholder="Username" id="user"><br>
+    <input type="password" placeholder="Password" id="pass"><br>
+    <button onclick="login()">Login</button>
+    <p id="msg"></p>
   </div>
+
+  <script>
+    function login() {
+      const u = document.getElementById("user").value;
+      const p = document.getElementById("pass").value;
+      if(u === "admin" && p === "1234") {
+        document.getElementById("msg").innerText = "✅ Login successful!";
+      } else {
+        document.getElementById("msg").innerText = "❌ Invalid credentials!";
+      }
+    }
+  </script>
 </body>
 </html>
