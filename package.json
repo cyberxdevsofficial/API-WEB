@@ -1,7 +1,7 @@
 {
   "name": "anuga-apis",
   "version": "1.0.0",
-  "description": "ANUGA APIS - Simple API hub for WhatsApp bot developers",
+  "description": "ANUGA APIS - Simple API hub",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
