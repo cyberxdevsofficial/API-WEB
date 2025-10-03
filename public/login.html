@@ -1,37 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Login - ANUGA APIS</title>
-  <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;display:flex;align-items:center;justify-content:center;height:100vh}
-    .box{background:#1c1c1c;padding:25px;border-radius:10px;text-align:center;width:300px}
-    h1{font-size:22px;margin-bottom:10px}
-    input{width:90%;padding:10px;margin:8px 0;border:1px solid #666;background:#222;color:#fff;border-radius:5px}
-    button{padding:10px 20px;background:#222;border:1px solid #666;color:#fff;cursor:pointer;border-radius:5px}
-    button:hover{background:#333}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Marketplace - ANUGA APIS</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;padding:20px}
+h1{font-size:24px;margin-bottom:20px}
+.card{background:#1c1c1c;padding:15px;margin:10px 0;border-radius:8px}
+a{color:#00b4d8;text-decoration:none}
+</style>
 </head>
 <body>
-  <div class="box">
-    <h1>🔑 Login</h1>
-    <input type="text" placeholder="Username" id="user"><br>
-    <input type="password" placeholder="Password" id="pass"><br>
-    <button onclick="login()">Login</button>
-    <p id="msg"></p>
-  </div>
+<h1>🛒 Marketplace</h1>
 
-  <script>
-    function login() {
-      const u = document.getElementById("user").value;
-      const p = document.getElementById("pass").value;
-      if(u === "admin" && p === "1234") {
-        document.getElementById("msg").innerText = "✅ Login successful!";
-      } else {
-        document.getElementById("msg").innerText = "❌ Invalid credentials!";
-      }
-    }
-  </script>
-</body>
-</html>
+<div class="card">
+<h3>Product 1: Mini Bot Base</h3>
+<p>Description: Node.js WhatsApp Mini Bot Base</p>
+<p>Contact Seller: <a href="https://wa.me/+94710695082" target="_blank">Message Seller</a></p>
+</div>
+
+<div class="card">
+<h3>Product 2: MD Bot Base</h3>
+<p>Description: Node.js WhatsApp Bot Base</p>
+<p>Contact Seller: <a href="https://wa.me/+94710695082" target="_blank
