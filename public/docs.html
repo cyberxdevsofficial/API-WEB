@@ -1,46 +1,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Docs - ANUGA APIS</title>
-  <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;padding:20px}
-    h1{font-size:24px}
-    .card{background:#1c1c1c;padding:15px;margin:10px 0;border-radius:8px}
-    a{color:#4da3ff;text-decoration:none}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Docs - ANUGA APIS</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;padding:20px}
+h1{font-size:24px}
+.card{background:#1c1c1c;padding:15px;margin:10px 0;border-radius:8px}
+a{color:#4da3ff;text-decoration:none}
+</style>
 </head>
 <body>
-  <h1>📚 ANUGA APIS - Documentation</h1>
+<h1>📚 ANUGA APIS - Documentation</h1>
 
-  <div class="card">
-    <h3>🔗 Share Text API</h3>
-    <p>Send text as API call</p>
-    <code>https://sharetextapi-anugasenithu.vercel.app/api/tool/sharetext?q=hello%20user</code>
-  </div>
+<div class="card">
+<h3>🔗 Share Text API</h3>
+<p>Send text as API call</p>
+<code>https://sharetextapi-anugasenithu.vercel.app/api/tool/sharetext?q=hello%20user</code>
+</div>
 
-  <div class="card">
-    <h3>🔋 Battery Status</h3>
-    <p id="battery">Checking...</p>
-  </div>
+<div class="card">
+<h3>🔋 Battery Status</h3>
+<p id="battery">Checking...</p>
+</div>
 
-  <div class="card">
-    <h3>🌍 Your IP Address</h3>
-    <p id="ip">Fetching...</p>
-  </div>
+<div class="card">
+<h3>🌍 Your IP Address</h3>
+<p id="ip">Fetching...</p>
+</div>
 
-  <script>
-    // Battery Status
-    navigator.getBattery().then(b => {
-      document.getElementById("battery").innerText =
-        `${(b.level*100).toFixed(0)}% ${b.charging ? "(Charging)" : ""}`;
-    });
-
-    // IP Address
-    fetch("https://api.ipify.org?format=json")
-      .then(r => r.json())
-      .then(d => { document.getElementById("ip").innerText = d.ip; });
-  </script>
+<script>
+// Battery Status
+navigator.getBattery().then(b=>{document.getElementById("battery").innerText=`${(b.level*100).toFixed(0)}% ${b.charging?"(Charging)":""}`});
+// IP Address
+fetch("https://api.ipify.org?format=json").then(r=>r.json()).then(d=>{document.getElementById("ip").innerText=d.ip;});
+</script>
 </body>
 </html>
