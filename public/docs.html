@@ -3,38 +3,63 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Docs - ANUGA APIS</title>
+<title>Explore APIs - Anuga Senithu</title>
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;padding:20px}
-h1{font-size:24px}
-.card{background:#1c1c1c;padding:15px;margin:10px 0;border-radius:8px}
-a{color:#4da3ff;text-decoration:none}
+:root{--bg:#0b0b0c;--text:#e6e6e6;--muted:#9aa0a6;--accent:#00b4d8}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.45}
+.container{max-width:900px;margin:40px auto;padding:24px}
+nav{display:flex;justify-content:center;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+nav a{color:var(--text);text-decoration:none;padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);transition:0.2s}
+nav a:hover{background:var(--accent);color:#000}
+h1{margin-bottom:20px;font-size:26px;text-align:center}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;margin-bottom:18px}
+code{background:#111;padding:4px 6px;border-radius:6px;font-size:14px;color:#4da3ff}
+footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
 </style>
 </head>
 <body>
-<h1>📚 ANUGA APIS - Documentation</h1>
+<div class="container">
+
+<!-- Navigation -->
+<nav>
+  <a href="/index.html">Portfolio</a>
+  <a href="/docs.html">Explore APIs</a>
+  <a href="/marketplace.html">Marketplace</a>
+  <a href="/contact.html">Contact Us</a>
+</nav>
+
+<h1>🚀 Explore APIs</h1>
 
 <div class="card">
-<h3>🔗 Share Text API</h3>
-<p>Send text as API call</p>
-<code>https://sharetextapi-anugasenithu.vercel.app/api/tool/sharetext?q=hello%20user</code>
+  <h3>🔗 Share Text API</h3>
+  <p>Send text as API call:</p>
+  <code>https://sharetextapi-anugasenithu.vercel.app/api/tool/sharetext?q=hello%20user</code>
 </div>
 
 <div class="card">
-<h3>🔋 Battery Status</h3>
-<p id="battery">Checking...</p>
+  <h3>🔋 Battery Status</h3>
+  <p id="battery">Checking...</p>
 </div>
 
 <div class="card">
-<h3>🌍 Your IP Address</h3>
-<p id="ip">Fetching...</p>
+  <h3>🌍 Your IP Address</h3>
+  <p id="ip">Fetching...</p>
+</div>
+
+<footer>© 2023-2025 | Anuga Senithu Portfolio</footer>
 </div>
 
 <script>
 // Battery Status
-navigator.getBattery().then(b=>{document.getElementById("battery").innerText=`${(b.level*100).toFixed(0)}% ${b.charging?"(Charging)":""}`});
+navigator.getBattery().then(b=>{
+  document.getElementById("battery").innerText =
+    `${(b.level*100).toFixed(0)}% ${b.charging ? "(Charging)" : ""}`;
+});
+
 // IP Address
-fetch("https://api.ipify.org?format=json").then(r=>r.json()).then(d=>{document.getElementById("ip").innerText=d.ip;});
+fetch("https://api.ipify.org?format=json")
+  .then(r=>r.json())
+  .then(d=>{document.getElementById("ip").innerText = d.ip;});
 </script>
 </body>
 </html>
