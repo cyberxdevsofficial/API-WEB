@@ -1,22 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ANUGA APIS</title>
-  <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#e6e6e6;text-align:center;padding:40px}
-    h1{font-size:28px}
-    button{padding:12px 20px;margin:10px;border:1px solid #666;background:#222;color:#fff;cursor:pointer;border-radius:8px}
-    button:hover{background:#333}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ANUGA APIS</title>
+<style>
+:root{--bg:#0b0b0c;--text:#e6e6e6;--muted:#9aa0a6;--accent:#00b4d8}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.45}
+.container{max-width:900px;margin:40px auto;padding:24px}
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{margin:0;font-size:22px;letter-spacing:1px}
+.status{font-size:13px;color:var(--muted)}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;margin-top:18px}
+.grid{display:grid;grid-template-columns:1fr 220px;gap:20px}
+.muted{color:var(--muted)}
+a.btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+footer{margin-top:28px;color:var(--muted);font-size:13px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <h1>🌐 ANUGA APIS</h1>
-  <p>Simple API Hub for WhatsApp Bot Developers</p>
+<div class="container">
+<header>
+<div>
+<h1>ANUGA APIS</h1>
+<div class="status">Status: <strong>Active</strong> · Battery: <strong id="battery-status">Loading...</strong></div>
+</div>
+<div>
+<a class="btn" href="/docs.html">Explore APIs</a>
+<a class="btn" href="/marketplace.html" style="margin-left:8px">Marketplace</a>
+<a class="btn" href="https://wa.me/+94710695082" target="_blank" style="margin-left:8px">Contact Developer</a>
+</div>
+</header>
 
-  <button onclick="location.href='/docs.html'">🚀 Explore APIs</button>
-  <button onclick="location.href='https://wa.me/+94710695082'">📩 Contact Developer</button>
-  <button onclick="location.href='/login.html'">🔑 Login</button>
+<section class="card" id="hero">
+<div class="grid">
+<div>
+<h2>Simple API hub for WhatsApp Bot Developers</h2>
+<p class="muted">Lightweight, minimal integration. Use these endpoints inside your bot to add features quickly.</p>
+<p style="margin-top:12px" class="muted">Currently serving <strong>56</strong> active endpoints.</p>
+<p class="muted">IP Address: <code id="ip-address">Loading...</code></p>
+</div>
+<aside>
+<div style="padding:12px;background:rgba(0,0,0,0.22);border-radius:10px">
+<p class="muted" style="margin:0 0 8px 0">What is an API?</p>
+<p class="muted" style="font-size:14px;line-height:1.4">An API (Application Programming Interface) is a set of rules and protocols that allows two systems or applications to communicate with each other.</p>
+</div>
+</aside>
+</div>
+</section>
+
+<section class="card" id="explore">
+<h3>Why Are APIs Useful for Bots?</h3>
+<ul class="muted">
+<li>Structured Data: APIs return structured data (JSON / XML) so bots can parse easily.</li>
+<li>Automated Tasks: Automate fetching data and interactions.</li>
+<li>System Communication: Integrate with external services like weather, translation, media, etc.</li>
+</ul>
+</section>
+
+<section class="card">
+<h3>Reasons to Use APIs</h3>
+<ul class="muted">
+<li>Saves development time</li>
+<li>Ready-to-use features</li>
+<li>Premium or unique functionality</li>
+<li>Can be used for service-based businesses</li>
+</ul>
+</section>
+
+<footer>© 2023-2025 | POWERED BY ANUGA APIS</footer>
+</div>
+
+<script>
+// Battery Status
+if(navigator.getBattery){
+navigator.getBattery().then(function(battery){
+function updateBattery(){document.getElementById("battery-status").textContent = Math.round(battery.level*100)+"% "+(battery.charging?"⚡ Charging":"");}
+updateBattery();
+battery.addEventListener("levelchange",updateBattery);
+battery.addEventListener("chargingchange",updateBattery);
+});
+}else{document.getElementById("battery-status").textContent="Not Supported";}
+
+// IP Address
+fetch("https://api.ipify.org?format=json").then(r=>r.json()).then(d=>{document.getElementById("ip-address").textContent=d.ip;}).catch(()=>{document.getElementById("ip-address").textContent="Unavailable";});
+</script>
 </body>
 </html>
