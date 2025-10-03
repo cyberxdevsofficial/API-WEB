@@ -20,6 +20,11 @@ app.get("/marketplace", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "marketplace.html"));
 });
 
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "contact.html"));
+});
+
+// Start server
 app.listen(PORT, () => {
-  console.log(`🚀 ANUGA APIS running on port ${PORT}`);
+  console.log(`🚀 Anuga Senithu Portfolio running on port ${PORT}`);
 });
