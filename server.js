@@ -19,20 +19,18 @@ app.get("/marketplace", (req,res) => res.sendFile(path.join(__dirname, "public",
 app.get("/contact", (req,res) => res.sendFile(path.join(__dirname, "public","contact.html")));
 app.get("/ai", (req,res) => res.sendFile(path.join(__dirname, "public","ai.html")));
 
-// AI API route using OpenAI + Gemini fallback
+// AI API route (OpenAI + Gemini)
 app.post("/api/ai", async (req,res)=>{
     const { message } = req.body;
     if(!message) return res.json({ reply: "Please send a message!" });
 
     const lowerMsg = message.toLowerCase();
-
-    // Owner info
     if(lowerMsg.includes("owner") || lowerMsg.includes("who")) {
         return res.json({ reply: "Owner: Anuga Senithu, Country: Sri Lanka" });
     }
 
     try {
-        // 1️⃣ Call OpenAI first
+        // 1️⃣ OpenAI call
         let reply = "";
         try {
             const openaiResp = await fetch("https://api.openai.com/v1/chat/completions",{
@@ -48,11 +46,9 @@ app.post("/api/ai", async (req,res)=>{
             });
             const data = await openaiResp.json();
             reply = data?.choices?.[0]?.message?.content;
-        } catch(e){
-            console.error("OpenAI error:", e);
-        }
+        } catch(e){ console.error("OpenAI error:", e); }
 
-        // 2️⃣ If OpenAI fails, fallback to Gemini API
+        // 2️⃣ Gemini fallback
         if(!reply || reply.length<1){
             const geminiResp = await fetch("https://gemini.googleapis.com/v1/query?key=AIzaSyA7QezMHn0l0331ITfWl-bwkbZW7r2Pv8Y",{
                 method:"POST",
