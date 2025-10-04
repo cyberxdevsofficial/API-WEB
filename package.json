@@ -1,16 +1,12 @@
 {
-  "name": "anuga-apis",
+  "name": "anuga-portfolio",
   "version": "1.0.0",
-  "description": "ANUGA APIS - Simple API hub",
-  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
-  },
-  "engines": {
-    "node": ">=16.x"
-  },
-  "license": "MIT"
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1"
+  }
 }
