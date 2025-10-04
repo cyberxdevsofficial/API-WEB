@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Anuga Senithu - Portfolio</title>
 <style>
 :root{--bg:#0b0b0c;--text:#e6e6e6;--muted:#9aa0a6;--accent:#00b4d8}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.45}
+body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
 .container{max-width:900px;margin:40px auto;padding:24px;text-align:center}
-nav{display:flex;justify-content:center;gap:16px;margin-bottom:28px;flex-wrap:wrap}
-nav a{color:var(--text);text-decoration:none;padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);transition:0.2s}
-nav a:hover{background:var(--accent);color:#000}
+nav{display:flex;align-items:center;justify-content:space-between;padding:12px;background:#0b0b0c;position:relative}
+.menu{display:flex;gap:14px}
+.menu a{color:#e6e6e6;text-decoration:none;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06)}
+.menu a:hover{background:#00b4d8;color:#000}
+.hamburger{display:none;font-size:22px;cursor:pointer;color:#e6e6e6}
+@media(max-width:768px){
+  .menu{display:none;flex-direction:column;gap:6px;position:absolute;top:40px;right:12px;background:#0b0b0c;padding:12px;border-radius:8px}
+  .hamburger{display:block}
+}
 .logo{width:120px;height:120px;border-radius:50%;margin:0 auto 20px auto;display:block}
 h1{margin:0;font-size:28px;letter-spacing:1px}
 .roles{margin-top:18px;font-size:16px;color:var(--muted)}
@@ -21,42 +27,44 @@ footer{margin-top:28px;color:var(--muted);font-size:13px}
 <body>
 <div class="container">
 
-<!-- Navigation -->
 <nav>
-  <a href="/index.html">Portfolio</a>
-  <a href="/docs.html">Explore APIs</a>
-  <a href="/marketplace.html">Marketplace</a>
-  <a href="/contact.html">Contact Us</a>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu">
+    <a href="/">Portfolio</a>
+    <a href="/docs">Explore APIs</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/ai">AI Assistant</a>
+  </div>
 </nav>
 
-<!-- Logo -->
 <img src="https://i.postimg.cc/nX6ZH38b/logo.png" alt="Anuga Senithu Logo" class="logo">
-
-<!-- Main Heading -->
 <h1>Hi, I’m Anuga Senithu</h1>
 <p class="roles">Bot Developer · Hacker · Editor · Graphic Designer</p>
 
-<!-- About -->
 <section class="card">
-  <h2>About Me</h2>
-  <p>
-    I’m passionate about creating powerful WhatsApp bots, exploring cybersecurity, and designing creative projects.  
-    With skills in Node.js, automation, graphic design, and video editing, I bring ideas to life with a mix of code and creativity.  
-  </p>
+<h2>About Me</h2>
+<p>Passionate about creating powerful WhatsApp bots, exploring cybersecurity, and designing creative projects.</p>
 </section>
 
-<!-- Skills -->
 <section class="card">
-  <h2>Skills</h2>
-  <ul>
-    <li>Bot Development (Node.js, WhatsApp Automation)</li>
-    <li>Cybersecurity & Ethical Hacking</li>
-    <li>Graphic Design & Editing</li>
-    <li>Web Development & APIs</li>
-  </ul>
+<h2>Skills</h2>
+<ul>
+<li>Bot Development (Node.js, WhatsApp Automation)</li>
+<li>Cybersecurity & Ethical Hacking</li>
+<li>Graphic Design & Editing</li>
+<li>Web Development & APIs</li>
+</ul>
 </section>
 
 <footer>© 2023-2025 | Anuga Senithu Portfolio</footer>
 </div>
+
+<script>
+function toggleMenu(){
+  const menu=document.querySelector("nav .menu");
+  menu.style.display=menu.style.display==="flex"?"none":"flex";
+}
+</script>
 </body>
 </html>
