@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Anuga AI - Assistant</title>
+<style>
+body{margin:0;font-family:Inter,Arial;background:#0b0b0c;color:#e6e6e6}
+.container{max-width:700px;margin:40px auto;padding:24px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:12px;background:#0b0b0c;position:relative}
+.menu{display:flex;gap:14px}
+.menu a{color:#e6e6e6;text-decoration:none;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06)}
+.menu a:hover{background:#00b4d8;color:#000}
+.hamburger{display:none;font-size:22px;cursor:pointer;color:#e6e6e6}
+@media(max-width:768px){
+  .menu{display:none;flex-direction:column;gap:6px;position:absolute;top:40px;right:12px;background:#0b0b0c;padding:12px;border-radius:8px}
+  .hamburger{display:block}
+}
+h1{text-align:center;margin-bottom:8px}
+p.subtitle{text-align:center;color:#9aa0a6;margin-bottom:16px}
+#chat{height:400px;overflow-y:auto;background:#111;padding:12px;border-radius:10px;margin-bottom:12px}
+.message{margin:6px 0;padding:6px 10px;border-radius:8px}
+.user{background:#222;text-align:right}
+.bot{background:#333;text-align:left}
+textarea{width:100%;padding:10px;border-radius:8px;background:#111;border:1px solid #444;color:#e6e6e6}
+button{margin-top:6px;padding:10px 14px;background:#222;border:1px solid #555;color:#e6e6e6;border-radius:6px;cursor:pointer}
+button:hover{background:#00b4d8;color:#000}
+footer{margin-top:28px;color:#9aa0a6;font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Navigation -->
+<nav>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu">
+    <a href="/">Portfolio</a>
+    <a href="/docs">Explore APIs</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/ai">AI Assistant</a>
+  </div>
+</nav>
+
+<h1>🤖 Anuga AI</h1>
+<p class="subtitle">Ask anything. I respond like ChatGPT & Gemini.</p>
+
+<div id="chat"></div>
+<textarea id="userMsg" rows="3" placeholder="Type your question..."></textarea>
+<button onclick="sendMessage()">Send</button>
+
+<footer>© 2023-2025 | Anuga Senithu Portfolio</footer>
+</div>
+
+<script>
+function toggleMenu(){
+  const menu=document.querySelector("nav .menu");
+  menu.style.display=menu.style.display==="flex"?"none":"flex";
+}
+
+async function sendMessage(){
+  const msg = document.getElementById("userMsg").value.trim();
+  if(!msg) return alert("⚠️ Type your message!");
+  
+  addMessage(msg,'user');
+  document.getElementById("userMsg").value="";
+
+  try {
+    const res = await fetch("/api/ai",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({message:msg})
+    });
+    const data = await res.json();
+    addMessage(data.reply,"bot");
+  } catch(e){
+    addMessage("❌ Error connecting to AI server.","bot");
+  }
+}
+
+function addMessage(msg,type){
+  const div = document.createElement("div");
+  div.className="message "+type;
+  div.innerText=msg;
+  document.getElementById("chat").appendChild(div);
+  document.getElementById("chat").scrollTop=document.getElementById("chat").scrollHeight;
+}
+</script>
+</body>
+</html>
