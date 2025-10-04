@@ -1,65 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Explore APIs - Anuga Senithu</title>
 <style>
 :root{--bg:#0b0b0c;--text:#e6e6e6;--muted:#9aa0a6;--accent:#00b4d8}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);line-height:1.45}
+body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
 .container{max-width:900px;margin:40px auto;padding:24px}
-nav{display:flex;justify-content:center;gap:16px;margin-bottom:28px;flex-wrap:wrap}
-nav a{color:var(--text);text-decoration:none;padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);transition:0.2s}
-nav a:hover{background:var(--accent);color:#000}
-h1{margin-bottom:20px;font-size:26px;text-align:center}
+nav{display:flex;align-items:center;justify-content:space-between;padding:12px;background:#0b0b0c;position:relative}
+.menu{display:flex;gap:14px}
+.menu a{color:#e6e6e6;text-decoration:none;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06)}
+.menu a:hover{background:#00b4d8;color:#000}
+.hamburger{display:none;font-size:22px;cursor:pointer;color:#e6e6e6}
+@media(max-width:768px){
+  .menu{display:none;flex-direction:column;gap:6px;position:absolute;top:40px;right:12px;background:#0b0b0c;padding:12px;border-radius:8px}
+  .hamburger{display:block}
+}
+h1{text-align:center;font-size:26px;margin-bottom:20px}
 .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;margin-bottom:18px}
 code{background:#111;padding:4px 6px;border-radius:6px;font-size:14px;color:#4da3ff}
-footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+footer{margin-top:28px;color:#9aa0a6;font-size:13px;text-align:center}
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- Navigation -->
 <nav>
-  <a href="/index.html">Portfolio</a>
-  <a href="/docs.html">Explore APIs</a>
-  <a href="/marketplace.html">Marketplace</a>
-  <a href="/contact.html">Contact Us</a>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu">
+    <a href="/">Portfolio</a>
+    <a href="/docs">Explore APIs</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/ai">AI Assistant</a>
+  </div>
 </nav>
 
 <h1>🚀 Explore APIs</h1>
 
 <div class="card">
-  <h3>🔗 Share Text API</h3>
-  <p>Send text as API call:</p>
-  <code>https://sharetextapi-anugasenithu.vercel.app/api/tool/sharetext?q=hello%20user</code>
+<h3>🔗 Share Text API</h3>
+<p>Send text as API call:</p>
+<code>https://sharetextapi-anugasenithu.vercel.app/api/tool/sharetext?q=hello%20user</code>
 </div>
 
 <div class="card">
-  <h3>🔋 Battery Status</h3>
-  <p id="battery">Checking...</p>
+<h3>🔋 Battery Status</h3>
+<p id="battery">Checking...</p>
 </div>
 
 <div class="card">
-  <h3>🌍 Your IP Address</h3>
-  <p id="ip">Fetching...</p>
+<h3>🌍 Your IP Address</h3>
+<p id="ip">Fetching...</p>
 </div>
 
 <footer>© 2023-2025 | Anuga Senithu Portfolio</footer>
 </div>
 
 <script>
-// Battery Status
-navigator.getBattery().then(b=>{
-  document.getElementById("battery").innerText =
-    `${(b.level*100).toFixed(0)}% ${b.charging ? "(Charging)" : ""}`;
-});
-
-// IP Address
-fetch("https://api.ipify.org?format=json")
-  .then(r=>r.json())
-  .then(d=>{document.getElementById("ip").innerText = d.ip;});
+function toggleMenu(){const menu=document.querySelector("nav .menu");menu.style.display=menu.style.display==="flex"?"none":"flex";}
+if(navigator.getBattery){navigator.getBattery().then(b=>{function u(){document.getElementById("battery").textContent=Math.round(b.level*100)+"% "+(b.charging?"⚡ Charging":"");}u();b.addEventListener("levelchange",u);b.addEventListener("chargingchange",u);});}else{document.getElementById("battery").textContent="Not Supported";}
+fetch("https://api.ipify.org?format=json").then(r=>r.json()).then(d=>{document.getElementById("ip").textContent=d.ip;}).catch(()=>{document.getElementById("ip").textContent="Unavailable";});
 </script>
 </body>
 </html>
