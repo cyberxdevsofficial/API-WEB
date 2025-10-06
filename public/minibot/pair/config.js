@@ -1,0 +1,21 @@
+module.exports = {
+    AUTO_VIEW_STATUS: 'true',
+    AUTO_LIKE_STATUS: 'true',
+    AUTO_RECORDING: 'true',
+    AUTO_LIKE_EMOJI: ['🧩', '🍉', '💜', '🌸', '🪴', '💊', '💫', '🍂', '🌟', '🎋', '😶‍🌫️', '🫀', '🧿', '👀', '😘', '🚩', '🥰', '🗿', '💜', '💙', '🌝', '🖤', '💗'],
+    PREFIX: '.',
+    MAX_RETRIES: 3,
+    GROUP_INVITE_LINK: 'https://chat.whatsapp.com/B5Zw2XPHrKjEFq00zrw8Y8?mode=ems_copy_t',
+    ADMIN_LIST_PATH: './admin.json',
+    IMAGE_PATH: 'https://i.postimg.cc/fbLksDqz/Screenshot-20251005-224142-Whats-App-Business.jpg',
+    NEWSLETTER_JID: '120363399531796033@newsletter',
+    NEWSLETTER_MESSAGE_ID: '5775',
+    OTP_EXPIRY: 300000,
+    NEWS_JSON_URL: '',
+    BOT_NAME: 'ᴀɴᴜᴡʜ ᴍᴅ ᴍɪɴɪ',
+    OWNER_NAME: '𝐀ɴᴜɢᴀ 𝐒ᴇɴɪᴛʜᴜ',
+    OWNER_NUMBER: '94710695082',
+    BOT_VERSION: '2.0.0 ʙᴇᴛᴀ',
+    BOT_FOOTER: '> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀɴᴜɢᴀ sᴇɴɪᴛʜᴜ',
+    CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vb69q4Y8fewk9hwUdq28'
+};
