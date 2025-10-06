@@ -4,82 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0b0b0c;
-    color: #e6e6e6;
-}
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;
-    background: rgba(0,0,0,0.8);
-}
-nav .menu {
-    display: flex;
-    gap: 14px;
-}
-nav .menu a {
-    color: #e6e6e6;
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-nav .menu a:hover {
-    background: #00b4d8;
-    color: #000;
-}
-.hamburger {
-    display: none;
-    font-size: 22px;
-    cursor: pointer;
-    color: #e6e6e6;
-}
-@media(max-width:768px){
-    nav .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 50px;
-        right: 12px;
-        background: rgba(0,0,0,0.9);
-        padding: 12px;
-        border-radius: 8px;
-    }
-    .hamburger { display:block; }
-}
-.container {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 24px;
-    text-align: center;
-    background: rgba(0,0,0,0.5);
-    border-radius: 12px;
-}
+body{margin:0; font-family:'Dancing Script', cursive; background:#0b0b0c; color:#e6e6e6;}
+nav{display:flex; justify-content:space-between; align-items:center; padding:12px 24px; background: rgba(0,0,0,0.8);}
+nav .menu{display:flex; gap:14px;}
+nav .menu a{color:#e6e6e6; text-decoration:none; padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.1);}
+nav .menu a:hover{background:#00b4d8; color:#000;}
+.hamburger{display:none; font-size:22px; cursor:pointer; color:#e6e6e6;}
+@media(max-width:768px){nav .menu{display:none; flex-direction:column; position:absolute; top:50px; right:12px; background: rgba(0,0,0,0.9); padding:12px; border-radius:8px;} .hamburger{display:block;}}
+.container{max-width:1000px; margin:60px auto; padding:24px; text-align:center; background: rgba(0,0,0,0.5); border-radius:12px;}
 h1{font-size:32px; margin-bottom:16px;}
 p{margin:8px 0;}
-button {
-    padding:10px 18px;
-    border:none;
-    border-radius:6px;
-    background:#00b4d8;
-    color:#000;
-    cursor:pointer;
-    font-size:16px;
-    margin-top:16px;
-}
+button{padding:10px 18px; border:none; border-radius:6px; background:#00b4d8; color:#000; cursor:pointer; font-size:16px; margin-top:16px;}
 button:hover{opacity:0.9;}
-footer{
-    margin-top:40px;
-    font-size:14px;
-    text-align:center;
-    color:#9aa0a6;
-}
+footer{margin-top:40px; font-size:14px; text-align:center; color:#9aa0a6;}
 </style>
 </head>
 <body>
@@ -105,10 +44,7 @@ footer{
 <footer>© 2025 Anuga Senithu</footer>
 
 <script>
-function toggleMenu(){
-  const menu = document.querySelector('nav .menu');
-  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-}
+function toggleMenu(){ const menu = document.querySelector('nav .menu'); menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex'; }
 </script>
 
 </body>
