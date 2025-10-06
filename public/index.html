@@ -1,92 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Anuga Senithu - Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anuga Senithu Portfolio</title>
 <style>
 :root{
-  --bg:#0b0b0c; --text:#e6e6e6; --muted:#9aa0a6; --accent:#00b4d8
+  --bg:#0b0b0c;
+  --text:#e6e6e6;
+  --accent:#00b4d8;
 }
-body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text);transition:0.3s}
-.container{max-width:900px;margin:40px auto;padding:24px;text-align:center}
-nav{display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--bg);position:relative}
-.menu{display:flex;gap:14px}
-.menu a{color:var(--text);text-decoration:none;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06)}
-.menu a:hover{background:var(--accent);color:#000}
-.hamburger{display:none;font-size:22px;cursor:pointer;color:var(--text)}
-@media(max-width:768px){.menu{display:none;flex-direction:column;gap:6px;position:absolute;top:40px;right:12px;background:var(--bg);padding:12px;border-radius:8px}.hamburger{display:block}}
-.logo{width:120px;height:120px;border-radius:50%;margin:0 auto 20px auto;display:block}
-h1{margin:0;font-size:28px;letter-spacing:1px}
-.roles{margin-top:18px;font-size:16px;color:var(--muted)}
-.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;margin-top:22px;text-align:left}
-footer{margin-top:28px;color:var(--muted);font-size:13px}
-
-/* Theme buttons */
-.theme-buttons{display:flex;gap:6px;justify-content:center;margin:14px 0}
-.theme-buttons button{cursor:pointer;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);background:var(--bg);color:var(--text)}
-.theme-buttons button:hover{background:var(--accent);color:#000}
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 24px;
+  background:var(--bg);
+}
+nav .menu{
+  display:flex;
+  gap:14px;
+}
+nav .menu a{
+  color:var(--text);
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+nav .menu a:hover{
+  background:var(--accent);
+  color:#000;
+}
+.hamburger{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+  color:var(--text);
+}
+@media(max-width:768px){
+  nav .menu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:50px;
+    right:12px;
+    background:var(--bg);
+    padding:12px;
+    border-radius:8px;
+  }
+  .hamburger{display:block;}
+}
+.container{
+  max-width:900px;
+  margin:40px auto;
+  padding:24px;
+  text-align:center;
+}
+h1{font-size:28px; margin-bottom:12px;}
+p{margin:8px 0;}
+footer{
+  margin-top:40px;
+  color:#9aa0a6;
+  font-size:14px;
+}
 </style>
 </head>
 <body>
-<div class="container">
 
 <nav>
+  <div class="logo">Anuga Senithu</div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
   <div class="menu">
     <a href="/">Portfolio</a>
     <a href="/docs">Explore APIs</a>
     <a href="/marketplace">Marketplace</a>
-    <a href="/contact">Contact Us</a>
+    <a href="/contact">Contact</a>
     <a href="/ai">AI Assistant</a>
+    <a href="/minibot">Mini Bot</a>
   </div>
 </nav>
 
-<div class="theme-buttons">
-  <button onclick="setTheme('light')">🌞 Light</button>
-  <button onclick="setTheme('dark')">🌙 Dark</button>
-  <button onclick="setTheme('system')">💻 System</button>
+<div class="container">
+<h1>Welcome to My Portfolio</h1>
+<p>I am a Bot Developer, Hacker, Editor, Graphic Designer.</p>
 </div>
 
-<img src="https://i.postimg.cc/nX6ZH38b/logo.png" alt="Anuga Senithu Logo" class="logo">
-<h1>Hi, I’m Anuga Senithu</h1>
-<p class="roles">Bot Developer · Hacker · Editor · Graphic Designer</p>
-
-<section class="card">
-<h2>About Me</h2>
-<p>Passionate about creating WhatsApp bots, exploring cybersecurity, and designing creative projects.</p>
-</section>
-
-<section class="card">
-<h2>Skills</h2>
-<ul>
-<li>Bot Development (Node.js, WhatsApp Automation)</li>
-<li>Cybersecurity & Ethical Hacking</li>
-<li>Graphic Design & Editing</li>
-<li>Web Development & APIs</li>
-</ul>
-</section>
-
-<footer>© 2023-2025 | Anuga Senithu Portfolio</footer>
-</div>
+<footer>© 2025 Anuga Senithu</footer>
 
 <script>
-function toggleMenu(){const menu=document.querySelector("nav .menu");menu.style.display=menu.style.display==="flex"?"none":"flex";}
-
-// Theme switch
-function setTheme(mode){
-  if(mode==='system'){localStorage.removeItem('theme');applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
-  else{localStorage.setItem('theme',mode);applyTheme(mode)}
+function toggleMenu(){
+  const menu = document.querySelector('nav .menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
-function applyTheme(mode){
-  const root=document.documentElement;
-  if(mode==='dark'){root.style.setProperty('--bg','#0b0b0c');root.style.setProperty('--text','#e6e6e6');root.style.setProperty('--muted','#9aa0a6');root.style.setProperty('--accent','#00b4d8')}
-  else{root.style.setProperty('--bg','#f5f5f5');root.style.setProperty('--text','#111');root.style.setProperty('--muted','#555');root.style.setProperty('--accent','#00b4d8')}
-}
-const savedTheme=localStorage.getItem('theme');
-if(savedTheme){applyTheme(savedTheme)}
-else{applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',e=>{if(!localStorage.getItem('theme')){applyTheme(e.matches?'dark':'light')}})
 </script>
 </body>
 </html>
