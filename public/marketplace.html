@@ -1,62 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Marketplace - Anuga Senithu</title>
-<style>
-:root{--bg:#0b0b0c;--text:#e6e6e6;--muted:#9aa0a6;--accent:#00b4d8}
-body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
-.container{max-width:900px;margin:40px auto;padding:24px}
-nav{display:flex;align-items:center;justify-content:space-between;padding:12px;background:#0b0b0c;position:relative}
-.menu{display:flex;gap:14px}
-.menu a{color:#e6e6e6;text-decoration:none;padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06)}
-.menu a:hover{background:#00b4d8;color:#000}
-.hamburger{display:none;font-size:22px;cursor:pointer;color:#e6e6e6}
-@media(max-width:768px){
-  .menu{display:none;flex-direction:column;gap:6px;position:absolute;top:40px;right:12px;background:#0b0b0c;padding:12px;border-radius:8px}
-  .hamburger{display:block}
-}
-h1{text-align:center;font-size:26px;margin-bottom:20px}
-.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;margin-bottom:18px}
-a.btn{display:inline-block;margin-top:10px;padding:8px 14px;background:#222;border:1px solid #555;border-radius:8px;color:#e6e6e6;text-decoration:none;transition:0.2s}
-a.btn:hover{background:#00b4d8;color:#000}
-footer{margin-top:28px;color:#9aa0a6;font-size:13px;text-align:center}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketplace</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
 
 <nav>
+  <div class="logo">Anuga Senithu</div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
   <div class="menu">
     <a href="/">Portfolio</a>
     <a href="/docs">Explore APIs</a>
     <a href="/marketplace">Marketplace</a>
-    <a href="/contact">Contact Us</a>
+    <a href="/contact">Contact</a>
     <a href="/ai">AI Assistant</a>
+    <a href="/minibot">Mini Bot</a>
   </div>
 </nav>
 
-<h1>🛒 Marketplace</h1>
+<div class="container">
+<h1>Marketplace</h1>
 
-<div class="card">
-<h3>Mini Bot Base</h3>
-<p><strong>Description:</strong> Node.js WhatsApp Mini Bot Base</p>
-<a href="https://wa.me/+94710695082" target="_blank" class="btn">📩 Contact Seller</a>
+<h2>Product 1</h2>
+<p>Name: Mini Bot Base</p>
+<p>Description: Node.js WhatsApp Mini Bot Base</p>
+<p>Contact seller: <a href="https://wa.me/+94710695082" target="_blank">WhatsApp</a></p>
+
+<h2>Product 2</h2>
+<p>Name: MD Bot Base</p>
+<p>Description: Node.js WhatsApp Bot Base</p>
+<p>Contact seller: <a href="https://wa.me/+94710695082" target="_blank">WhatsApp</a></p>
 </div>
 
-<div class="card">
-<h3>MD Bot Base</h3>
-<p><strong>Description:</strong> Node.js WhatsApp Bot Base</p>
-<a href="https://wa.me/+94710695082" target="_blank" class="btn">📩 Contact Seller</a>
-</div>
-
-<footer>© 2023-2025 | Anuga Senithu Portfolio</footer>
-</div>
+<footer>© 2025 Anuga Senithu</footer>
 
 <script>
-function toggleMenu(){const menu=document.querySelector("nav .menu");menu.style.display=menu.style.display==="flex"?"none":"flex";}
+function toggleMenu(){
+  const menu = document.querySelector('nav .menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
 </script>
 </body>
 </html>
