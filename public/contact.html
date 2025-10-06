@@ -1,11 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Contact Us - Anuga Senithu</title>
-<style>
-:root{--bg:#0b0b0c;--text:#e6e6e6;--accent:#00b4d8}
-body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
-.container{max-width:700px;margin:40px auto;padding:24px}
-nav{display:flex;align-items
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">Anuga Senithu</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu">
+    <a href="/">Portfolio</a>
+    <a href="/docs">Explore APIs</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/contact">Contact</a>
+    <a href="/ai">AI Assistant</a>
+    <a href="/minibot">Mini Bot</a>
+  </div>
+</nav>
+
+<div class="container">
+<h1>Contact Me</h1>
+<p>Click below to contact me on WhatsApp:</p>
+<button onclick="window.location.href='https://wa.me/+94710695082'">Contact on WhatsApp</button>
+</div>
+
+<footer>© 2025 Anuga Senithu</footer>
+
+<script>
+function toggleMenu(){
+  const menu = document.querySelector('nav .menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
+</body>
+</html>
