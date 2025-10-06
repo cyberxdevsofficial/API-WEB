@@ -4,79 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anuga Senithu Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0b0b0c;
-  --text:#e6e6e6;
-  --accent:#00b4d8;
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://github.com/cyberxdevsofficial/Photos/blob/main/anuwhmd-logo') no-repeat center center fixed;
+    background-size: cover;
+    color: #e6e6e6;
 }
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:0.3s;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: rgba(0,0,0,0.8);
 }
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 24px;
-  background:var(--bg);
+nav .menu {
+    display: flex;
+    gap: 14px;
 }
-nav .menu{
-  display:flex;
-  gap:14px;
+nav .menu a {
+    color: #e6e6e6;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
-nav .menu a{
-  color:var(--text);
-  text-decoration:none;
-  padding:6px 10px;
-  border-radius:6px;
-  border:1px solid rgba(255,255,255,0.1);
+nav .menu a:hover {
+    background: #00b4d8;
+    color: #000;
 }
-nav .menu a:hover{
-  background:var(--accent);
-  color:#000;
-}
-.hamburger{
-  display:none;
-  font-size:22px;
-  cursor:pointer;
-  color:var(--text);
+.hamburger {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #e6e6e6;
 }
 @media(max-width:768px){
-  nav .menu{
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:50px;
-    right:12px;
-    background:var(--bg);
-    padding:12px;
-    border-radius:8px;
-  }
-  .hamburger{display:block;}
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 12px;
+        background: rgba(0,0,0,0.9);
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .hamburger { display:block; }
 }
-.container{
-  max-width:900px;
-  margin:40px auto;
-  padding:24px;
-  text-align:center;
+.container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 24px;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    border-radius: 12px;
 }
-h1{font-size:28px; margin-bottom:12px;}
+h1{font-size:36px; margin-bottom:16px;}
 p{margin:8px 0;}
+.logo img{height:60px;}
 footer{
-  margin-top:40px;
-  color:#9aa0a6;
-  font-size:14px;
+    margin-top:40px;
+    font-size:14px;
+    text-align:center;
+    color:#9aa0a6;
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Anuga Senithu</div>
+  <div class="logo">
+    <img src="https://github.com/cyberxdevsofficial/Photos/blob/main/anuwhmd-logo" alt="Anuga Senithu Logo">
+  </div>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
   <div class="menu">
     <a href="/">Portfolio</a>
@@ -98,6 +100,11 @@ footer{
 <script>
 function toggleMenu(){
   const menu = document.querySelector('nav .menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
+</body>
+</html>  const menu = document.querySelector('nav .menu');
   menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
 }
 </script>
