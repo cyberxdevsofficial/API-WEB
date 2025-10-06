@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANUWH MD MINI BETA V2</title>
+<style>
+:root{
+  --bg:#0b0b0c;
+  --text:#e6e6e6;
+  --accent:#00b4d8;
+}
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 24px;
+  background:var(--bg);
+}
+nav .menu{
+  display:flex;
+  gap:14px;
+}
+nav .menu a{
+  color:var(--text);
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+nav .menu a:hover{
+  background:var(--accent);
+  color:#000;
+}
+.hamburger{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+  color:var(--text);
+}
+@media(max-width:768px){
+  nav .menu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:50px;
+    right:12px;
+    background:var(--bg);
+    padding:12px;
+    border-radius:8px;
+  }
+  .hamburger{display:block;}
+}
+.container{
+  max-width:900px;
+  margin:40px auto;
+  padding:24px;
+  text-align:center;
+}
+h1{font-size:28px; margin-bottom:12px;}
+h2{font-size:22px; margin:16px 0 8px;}
+p{margin:8px 0;}
+button{
+  padding:10px 18px;
+  border:none;
+  border-radius:6px;
+  background:var(--accent);
+  color:#000;
+  cursor:pointer;
+  font-size:16px;
+  margin-top:16px;
+}
+button:hover{opacity:0.9;}
+footer{
+  margin-top:40px;
+  color:#9aa0a6;
+  font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ANUWH</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu">
+    <a href="/">Portfolio</a>
+    <a href="/docs">Explore APIs</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/contact">Contact</a>
+    <a href="/ai">AI Assistant</a>
+    <a href="/minibot">Mini Bot</a>
+  </div>
+</nav>
+
+<div class="container">
+<h1>ANUWH MD MINI BETA V2</h1>
+<p>Welcome to the Mini Bot Beta 2 interface. Manage your WhatsApp bots easily!</p>
+
+<h2>Features</h2>
+<ul style="text-align:left; max-width:600px; margin:auto;">
+<li>Node.js WhatsApp Bot Mini Base</li>
+<li>Pair your bot easily</li>
+<li>Manage multiple bots from one interface</li>
+<li>Compatible with your my-v2 setup</li>
+</ul>
+
+<button onclick="window.location.href='/minibot/pair'">Pair Now</button>
+</div>
+
+<footer>© 2025 ANUWH MD MINI BETA V2</footer>
+
+<script>
+function toggleMenu(){
+  const menu = document.querySelector('nav .menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
+</body>
+</html>
